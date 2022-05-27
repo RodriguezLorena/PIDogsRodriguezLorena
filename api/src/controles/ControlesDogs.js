@@ -13,16 +13,7 @@ const getAllDogs = async() => {
     }
 }
 
-const perrito = async()=>{
-    try {
-        let perritosGeneral= await getAllDogs();
-        let primerPerrito= perritosGeneral[0];
-        console.log(primerPerrito);
-        return primerPerrito;
-    } catch (error) {
-         console.log(error);
-    }    
-}
+
 
 const nombreDePerrito = async()=>{
     try {
@@ -36,12 +27,33 @@ const nombreDePerrito = async()=>{
 }
 
 
+const buscaRazas = async(name)=>{
+    try {
+        const allRazas= await nombreDePerrito()
+        const filtrados= allRazas.filter(string=> string.toLowerCase().includes(name.toLowerCase()))
+        return filtrados
+        
+    } catch (error) {
+        console.log(error)
+    }
+}
 
+// const perrito = async()=>{
+//     try {
+//         let perritosGeneral= await getAllDogs();
+//         let primerPerrito= perritosGeneral[0];
+//         console.log(primerPerrito);
+//         return primerPerrito;
+//     } catch (error) {
+//          console.log(error);
+//     }    
+// }
 
 module.exports={
     getAllDogs,
-    perrito,
+    // perrito,
     nombreDePerrito,
+    buscaRazas,
     
     
 }

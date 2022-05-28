@@ -12,15 +12,15 @@ module.exports = (sequelize) => {
     },
     name: {
       type: DataTypes.STRING,
-      allowNull: false,
+      // allowNull: false,
     },
     height: {
       type: DataTypes.STRING,
-      allowNull: false
+      // allowNull: false
     },
     weight:{
       type: DataTypes.STRING,
-      allowNull: false
+      // allowNull: false
     },
     life_span:{
       type: DataTypes.STRING,
@@ -28,7 +28,7 @@ module.exports = (sequelize) => {
     },
     image:{
       type: DataTypes.STRING,
-      allowNull:false
+      // allowNull:false
     }
 
   }, {timestamps: false});   //borramos las columnas que nos mandan al frente con los horarios

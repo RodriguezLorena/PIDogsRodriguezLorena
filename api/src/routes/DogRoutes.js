@@ -2,7 +2,7 @@ const { Router } = require('express');
 const router = Router();
 
 
-const { buscaRazas, objetoPerrito, perritoPorId} = require('../controles/ControlesDogs');
+const { buscaRazas, perritoPorId, allDogs} = require('../controles/ControlesDogs');
 
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
@@ -16,12 +16,12 @@ const { buscaRazas, objetoPerrito, perritoPorId} = require('../controles/Control
             const resultado = await buscaRazas(name)
           if(resultado.length && resultado.length > 0)res.status(200).json(resultado) 
          } catch (error) {
-            res.status(404).send(`${name} la raza no es la adecuada`)
+            res.status(404).send(`${name} la raza que intenta buscar no se encuentra en nuestra base de datos`)
              console.log(error)
          }
     }else {
         try {
-            const nombress= await objetoPerrito()
+            const nombress= await allDogs()
             res.status(200).json(nombress)  
         } catch (error) {
              console.log(error)

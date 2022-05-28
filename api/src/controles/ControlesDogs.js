@@ -1,5 +1,6 @@
 require("dotenv").config()
 const axios = require("axios")
+const {Dog, Temperamento }= require("../db")
 const {
     YOUR_API_KEY
    } = process.env;
@@ -29,7 +30,7 @@ const nombreDePerrito = async()=>{
 
 const buscaRazas = async(name)=>{
     try {
-        const allRazas= await objetoPerrito()
+        const allRazas= await allDogs()
         const filtrados= allRazas.filter(objeto=> objeto.name.toLowerCase().includes(name.toLowerCase()))
         if(filtrados.length > 0) return filtrados
                   
@@ -70,6 +71,35 @@ const perritoPorId= async (id)=>{
     }
 }
 
+
+//informacion de la Base de Datos
+
+const infoBd= async()=>{
+    try {
+        const perritosDeDb= await Dog.findAll({
+            include:{
+                model: Temperamento,
+                attributes: ["name"],
+                through:{
+                    attributes:[]
+                }
+            }
+        })
+        return perritosDeDb;
+    } catch (error) {
+        console.log(error);
+    }
+}
+ const allDogs= async()=>{
+     try {
+         const datosDeLaApi= await objetoPerrito();
+         const datosDeLaDb= await infoBd();
+         const datosDeAmbos= [...datosDeLaApi, ...datosDeLaDb];
+         return datosDeAmbos;
+     } catch (error) {
+         console.log(error)
+     }
+ }
 //pruebaaaaaa!!!!
 // const perrito = async()=>{
 //     try {
@@ -84,11 +114,9 @@ const perritoPorId= async (id)=>{
 
 module.exports={
     getAllDogs,
-    // perrito,
     nombreDePerrito,
     buscaRazas,
     objetoPerrito,
-    perritoPorId
-    
-    
+    perritoPorId, 
+    allDogs   
 }

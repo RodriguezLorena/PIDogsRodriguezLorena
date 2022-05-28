@@ -9,7 +9,7 @@ const postRoutes= require("./postRoutes")
 
 // Configurar los routers
 router.use("/dogs", DogRoutes)
-router.use("/temperamentos", temperamentoRoutes)
+router.use("/temperaments", temperamentoRoutes)
 router.use("/dog", postRoutes)
 //aca apuntamos quien se va a encargar de cada ruta
 

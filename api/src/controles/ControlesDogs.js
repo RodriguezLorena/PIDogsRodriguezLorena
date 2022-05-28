@@ -5,7 +5,9 @@ const {
     YOUR_API_KEY
    } = process.env;
 
-const getAllDogs = async() => {
+
+
+   const getAllDogs = async() => {
     try {
         let dogs = (await axios(`https://api.thedogapi.com/v1/breeds?api_key=${YOUR_API_KEY}`)).data
         return dogs
@@ -47,8 +49,8 @@ const objetoPerrito= async()=>{
             return{
                 id:objeto.id,
                 name: objeto.name,
-                height: objeto.height,
-                weight: objeto.weight,
+                height: objeto.height.imperial,
+                weight: objeto.weight.imperial,
                 life_span: objeto.life_span,
                 image: objeto.image.url,
                 temperament: objeto.temperament
@@ -90,10 +92,30 @@ const infoBd= async()=>{
         console.log(error);
     }
 }
+
+
+arreglandoTemperamentos= async()=>{
+    try {
+        const datoDb= await infoBd();
+        let arreglo= datoDb.map((raza)=>({
+            id:raza.id,
+            name: raza.name,
+            height: raza.height,
+            weight:raza.weight,
+            life_span: raza.life_span,
+            image: raza.image,
+            temperament: raza.temperamentos.map((temperament)=> temperament.name).join(", ")
+        }))
+        return arreglo;
+    } catch (error) {
+        console.log(error)
+    }
+}
+
  const allDogs= async()=>{
      try {
          const datosDeLaApi= await objetoPerrito();
-         const datosDeLaDb= await infoBd();
+         const datosDeLaDb= await arreglandoTemperamentos();
          const datosDeAmbos= [...datosDeLaApi, ...datosDeLaDb];
          return datosDeAmbos;
      } catch (error) {

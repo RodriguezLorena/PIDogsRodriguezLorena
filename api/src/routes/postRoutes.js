@@ -1,4 +1,4 @@
-const { urlencoded } = require("body-parser")
+
 const { Router } = require("express")
 const router = Router()
 
@@ -10,7 +10,7 @@ router.post("/", async (req, res)=>{
      const {name, height,  weight, life_span, url, temperament}= req.body;
      
      const creandoRaza= await Dog.create({
-         name: name,   //controlar que siempre este este acorde con mi modelo de creacion
+         name: name,   //controlar que siempre  este acorde con mi modelo de creacion
          height: height,
          weight: weight,
          life_span:life_span,
@@ -25,6 +25,7 @@ router.post("/", async (req, res)=>{
    res.send("Se pudo cargar todo muy bien")
   
    }catch(error) {
+       
        console.log(error)
    }
 // try {

@@ -9,10 +9,11 @@ const {
 
 
 const getAllTemperamentos = async() =>{
-    console.log( "ACA ESTA EL ERROR", YOUR_API_KEY)
+    // console.log( "ACA ESTA EL ERROR", YOUR_API_KEY)
     try{
         let todosLosTemperamentos = await getAllDogs()
         let temperamentos= todosLosTemperamentos.map((objeto)=> objeto.temperament)
+        
         return temperamentos;
         // let temperamentos = (await axios(`https://api.thedogapi.com/v1/breeds?api_key=${YOUR_API_KEY}`)).data
         // res.send(temperamentos)

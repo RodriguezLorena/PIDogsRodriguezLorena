@@ -1,4 +1,4 @@
-const inicialState={
+const inicialState = {
     perritos: [],
     temperamentos:[]
 }
@@ -10,7 +10,8 @@ function reducer(state=inicialState, {type, payload}){
                 ...state,
                 perritos: payload
             }
-        default: return state    
+        default:
+            return state    
     }
 }
 

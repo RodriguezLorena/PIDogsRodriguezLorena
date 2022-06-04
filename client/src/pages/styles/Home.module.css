@@ -1,0 +1,26 @@
+
+.container{
+  display: flex;
+  
+}
+
+
+.button{
+  width: 100%;
+  justify-content: center;
+  background-color:  #092201;
+  text-align: center;
+  
+
+}
+
+.btn{
+    align-items: center;
+    padding: 1rem;
+    background-color: #7ecf01;
+    border-radius: 10px;
+    margin: 1rem;
+
+}
+
+ 

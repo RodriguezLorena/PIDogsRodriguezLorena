@@ -1,10 +1,10 @@
-import { useEffect } from 'react'
+import {Fragment } from 'react'
 import Card from './Card'
 
 const Cards = ({listDogs}) => {
 
     return (
-        <div>
+        <Fragment>
             {
                 listDogs && listDogs.map((element)=>{
                     return(
@@ -14,7 +14,7 @@ const Cards = ({listDogs}) => {
                     ) 
                 })
             }
-        </div>
+        </Fragment>
   )
 }
 

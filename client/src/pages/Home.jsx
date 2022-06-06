@@ -39,9 +39,11 @@ function Home(){
     }
 
     let numerosDePaginas=[];
-    for(let i= 0; i <= Math.ceil(perritos.length/pageSize); i++){
+    for(let i= 1; i <= Math.ceil(perritos.length/pageSize); i++){
         numerosDePaginas.push(i)
     }
+
+    
     
     return(
         <Fragment>
@@ -59,19 +61,7 @@ function Home(){
                     }
                     <button className={styles.btn} onClick={cambiarPagina}>siguiente</button>
                 </div>
-                <div>
-                    
-                        
-                        <select >
-                            <option value="razas">Tipo de Razas</option>
-                        
-                        </select>
-                        
-
-                     
-                       
-                  
-                </div>
+               
             
                 <div className={styles.container}>    
                     < Cards listDogs={listDogs}/>

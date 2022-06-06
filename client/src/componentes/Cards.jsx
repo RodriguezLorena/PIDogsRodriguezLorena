@@ -9,7 +9,7 @@ const Cards = ({listDogs}) => {
                 listDogs && listDogs.map((element)=>{
                     return(
                             <div key={element.id}>
-                                <Card name={element.name} image={element.image}/>
+                                <Card name={element.name} image={element.image} id={element.id}/>
                             </div>
                     ) 
                 })

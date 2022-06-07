@@ -1,10 +1,12 @@
-import React from 'react'
+import {React, useState} from 'react'
+
 import { useDispatch, useSelector } from 'react-redux'
-import {actionOrdenAlfa, actionTemperamentos, actionCambioDePeso, resetearFiltros} from "../redux/actions"
+import {actionOrdenAlfa, actionTemperamentos, actionCambioDePeso, resetearFiltros, filtroDeCreados,searchBarFilter} from "../redux/actions"
 // import logoHeader from "../img/fondoInicio.jpg"
+import style from "../componentes/styles/Header.module.css"
 
 
-const Header = () => {
+const Header = ({setCurrentPage}) => {
     const dispatch= useDispatch()
     const temperaments= useSelector(state=> state.temperamentos)
 
@@ -17,6 +19,7 @@ const Header = () => {
     const handlerCambiaTemperamento=(e)=>{
         let valor = e.target.value;
         dispatch(actionTemperamentos(valor))
+        setCurrentPage(1)
     }
     
     const handlerCambioPeso=(e)=>{
@@ -24,13 +27,35 @@ const Header = () => {
         dispatch(actionCambioDePeso(valor))
     }
 
+    const handlerTipoCreados=(e)=>{
+        let valor= e.target.value;
+        dispatch(filtroDeCreados(valor))
+        setCurrentPage(1)
+    }
+
     const resetFilters = ()=>{
         dispatch(resetearFiltros())
       }
+    
+    //searchBar
+   const [ message, setMessenger] = useState("")
 
+   function handlerMessenger(e){
+    let busqueda= e.target.value.toLowerCase().trim()
+    setMessenger(busqueda)  
+}
 
+   function onSubmit(e){
+       e.preventDefault();
+       dispatch(searchBarFilter(message))
+       setMessenger("");
+       setCurrentPage(1)
+       
+   }
+
+  
   return (
-    <div>
+    <div className={style.contenedor}>
         {/* <img  src={logoHeader} alt="logo"/> */}
         <div>
             <div>
@@ -61,6 +86,20 @@ const Header = () => {
                     <option value="minMax">peso minimo</option>
                     <option value="maxMin">peso maximo</option>
                 </select>
+            </div>
+            <div>
+                <select onChange={(e)=>handlerTipoCreados(e)} name="Creados">
+                    <option value="todos">Todos</option>
+                    <option value="creadosDb">Raza Creada</option>
+                    <option value="creadosApi">Raza Api</option>
+                </select>
+            </div>
+            <div>
+                <form onSubmit={(e)=>onSubmit(e)}>
+                    <input type="text" value={message} onChange={(e)=>handlerMessenger(e)} placeholder="Search for names.."/>
+                    <input type="submit" value="Enviar"/>
+                   
+                </form>
             </div>
         </div>
         <div>

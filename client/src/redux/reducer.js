@@ -91,7 +91,35 @@ const inicialState = {
                 return{
                     ...state,
                     perritos: listDogs3
-                }             
+                } 
+        case "FILTROS_CREADOS":
+            let losPerros= [...state.perritosNm]
+            let filtrados;
+            if(payload === "todos"){
+                filtrados = losPerros
+            } else{
+                filtrados= payload === "creadosDb" ? losPerros.filter(x=>(x.id).toString().length > 10) : losPerros.filter(x=>(x.id).toString().length < 10)
+            }
+            return{
+                ...state,
+                perritos: filtrados
+            } 
+        case "SEARCH_BAR":
+            let busquedaDeperros= [...state.perritosNm]
+            let resultado= busquedaDeperros.filter(e=>(e.name.toLowerCase()).includes(payload.toString().toLowerCase()))
+            if(resultado){
+                return{
+                    ...state,
+                    perritos: resultado
+                }        
+            }else{
+                alert("no se dio")
+                return{
+                    ...state,
+                    
+                }        
+            }
+           
         default:
             return state    
     }

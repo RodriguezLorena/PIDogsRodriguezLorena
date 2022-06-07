@@ -1,0 +1,5 @@
+.contenedor{
+    background-color: #092201;
+    display:flex;
+    flex-direction: row;
+}

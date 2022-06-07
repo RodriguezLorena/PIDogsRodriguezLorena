@@ -53,7 +53,7 @@ const Home = ()=>{
             {perritos.length > 0 ? (
            
            <div>
-                 <Header/>
+                 <Header setCurrentPage={setCurrentPage}/>
                 <div className={styles.button}>
                     <button className={styles.btn} onClick={volverAnterior}>volver</button>
                     {

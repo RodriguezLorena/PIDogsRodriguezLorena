@@ -72,3 +72,28 @@ export function resetearFiltros(){
         type: "RESET_FILTERS"
     }
 }
+
+export const filtroDeCreados =(payload)=>{
+    return async function(dispatch){
+        try {
+            return dispatch({
+                type: "FILTROS_CREADOS",
+                payload
+            })
+        } catch (error) {
+            console.log( error)
+        }
+    }
+}
+export const searchBarFilter =(payload)=>{
+    return async function(dispatch){
+        try {
+            return dispatch({
+                type: "SEARCH_BAR",
+                payload
+            })
+        } catch (error) {
+            
+        }
+    }
+}

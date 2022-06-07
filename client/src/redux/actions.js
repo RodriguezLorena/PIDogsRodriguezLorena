@@ -45,3 +45,30 @@ export function selectRemuve(){
         type: "SELECT_REMUVE"
     }
 }
+
+export function actionOrdenAlfa(payload){
+    return{
+        type: "SELECT_ORDEN_ALFA",
+        payload
+    }
+}
+
+export function actionTemperamentos(payload){
+    return{
+        type: "SELECT_FILTRO_TEMPERAMENTOS",
+        payload
+    }
+}
+
+export function actionCambioDePeso(payload){
+    return{
+        type: "SELECT_CAMBIO_PESO",
+        payload
+    }
+}
+
+export function resetearFiltros(){
+    return {
+        type: "RESET_FILTERS"
+    }
+}

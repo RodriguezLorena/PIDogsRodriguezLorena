@@ -1,6 +1,7 @@
 const inicialState = {
     perritos: [],
     unPerrito: {},
+    perritosNm:[],
     temperamentos:[]
 }
 
@@ -9,15 +10,88 @@ const inicialState = {
         case "GET_DOGS":
             return{
                 ...state,
-                perritos: payload
+                perritos: payload,
+                perritosNm: payload
             }
+        case "GET_TEMPERAMENTS":
+            return{
+                ...state,
+                temperamentos: payload
+            }    
         case "SELECT_DOGS":
                 return   {
                     ...state, 
                     unPerrito: payload
                 }  
-        case "SELECT_REMUVE":
-                    return   {};     
+                    
+        case "SELECT_ORDEN_ALFA":
+            const listaDePerritos= [...state.perritos]
+            if(payload === "aZ"){
+                listaDePerritos.sort((obj1, obj2)=>{
+                    if(obj1.name < obj2.name){
+                        return -1
+                    }else{
+                        return 1
+                    }
+                })
+            }
+
+            if(payload === "zA"){
+                listaDePerritos.sort((obj1, obj2)=>{
+                    if(obj1.name < obj2.name){
+                        return 1
+                    }else{
+                        return -1
+                    }
+                })
+            }
+            return{
+                ...state,
+                perritos: listaDePerritos
+                
+            } 
+        case "SELECT_FILTRO_TEMPERAMENTOS":
+            const listadogs = [...state.perritosNm] 
+            let listaDeTemperamentos;
+            if(payload === "all"){
+                listaDeTemperamentos = listadogs
+            }else{
+                listaDeTemperamentos = listadogs.filter((ele)=>ele.temperament?.includes(payload))
+            }
+            return{
+                ...state,
+                perritos: listaDeTemperamentos
+            }  
+            case "SELECT_CAMBIO_PESO":
+                let listaPeso= [...state.perritos]
+                if(payload === 'minMax') {
+                    listaPeso.sort( (obj1, obj2) => {
+                        if( Number(obj1.weight.split(" - ")[0]) < Number(obj2.weight.split(" - ")[0])) {
+                            return -1
+                        } else {
+                            return 1
+                        }
+                    } )
+                }
+                if(payload === 'maxMin') {
+                    listaPeso.sort( (obj1, obj2) => {
+                        if( Number(obj1.weight.split(" - ")[1]) < Number(obj2.weight.split(" - ")[1])) {
+                            return 1
+                        } else {
+                            return -1
+                        }
+                    } )
+                }
+                return{
+                    ...state,
+                    perritos:listaPeso
+                }   
+            case "RESET_FILTERS" :
+                let listDogs3 = [...state.perritosNm]
+                return{
+                    ...state,
+                    perritos: listDogs3
+                }             
         default:
             return state    
     }

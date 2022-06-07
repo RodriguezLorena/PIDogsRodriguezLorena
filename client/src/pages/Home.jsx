@@ -1,16 +1,18 @@
 import { useEffect, useState, Fragment } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { traerLosPerritos } from '../redux/actions'
+import { traerLosPerritos, traerLosTemperamentos } from '../redux/actions'
 import Cards from "../componentes/Cards";
+import Header from '../componentes/Header';
 import styles from "../pages/styles/Home.module.css"
 
 
-function Home(){
+const Home = ()=>{
     const dispatch= useDispatch()
     const perritos= useSelector((state)=>state.perritos) 
 
     useEffect(()=>{  
         dispatch(traerLosPerritos()) 
+        dispatch(traerLosTemperamentos())
     }, [dispatch])
 
     /** Inicio del paginado */
@@ -47,9 +49,11 @@ function Home(){
     
     return(
         <Fragment>
+          
             {perritos.length > 0 ? (
            
            <div>
+                 <Header/>
                 <div className={styles.button}>
                     <button className={styles.btn} onClick={volverAnterior}>volver</button>
                     {

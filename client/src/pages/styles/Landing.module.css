@@ -1,39 +1,62 @@
 
 
 .Landing{
-   background-image: url("../../img/fondoInicio.jpg");
-   
+   background-image: url("../../img//fondoInicio2.png");
+   background-size: auto;
     width: 100%;
     height: 100vh;
-    background-size: cover;
+    background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items:flex-end;
     gap: 20px;
 
-    padding-top: 30px;
+    padding-top: 20%;
 }
 
 .Titulo{
-    color: white;
+    color: rgb(44, 26, 17);
     text-transform: uppercase;
     font-size: 2rem;
-    letter-spacing: 1rem;
+    letter-spacing: 10px;
+    padding-right: 10%;  
+     
+
+}
+.span{
+    color: rgb(12, 12, 12);
+    text-transform:lowercase;
+    font-size: 1rem;
+    letter-spacing: 5px;
+    padding-right: 15%;  
+     
+}
+
+.btnConten{
+    align-items:center;
+    width: 62%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 2%; 
 
 }
 
 .Boton{
-    padding: 1rem;
+    padding:2rem;
     cursor: pointer;
-    box-shadow: 5px 5px 21px 5px black;
-    background-color: #7ecf01;
+    box-shadow: 5px 5px 21px 5px rgb(40, 18, 5);
     color: black;
-    border-radius: 10px;
+    border-radius: 80%;
     text-transform: uppercase;
+    text-align: center;
+    background-color: rgb(218, 170, 153);
+    color: rgb(44, 26, 17);
+    text-decoration: none;
+    font-weight: bolder;
 }
 
 .Boton:hover{
-    background-color: black;
+    background-color:rgb(44, 26, 17);
     color: white;
 }
 

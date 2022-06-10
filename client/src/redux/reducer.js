@@ -113,7 +113,7 @@ const inicialState = {
                     perritos: resultado
                 }        
             }else{
-                alert("no se dio")
+               
                 return{
                     ...state,
                     

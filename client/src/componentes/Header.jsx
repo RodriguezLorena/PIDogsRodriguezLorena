@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import {actionOrdenAlfa, actionTemperamentos, actionCambioDePeso, resetearFiltros, filtroDeCreados,searchBarFilter} from "../redux/actions"
 // import logoHeader from "../img/fondoInicio.jpg"
 import style from "../componentes/styles/Header.module.css"
+import { Link } from 'react-router-dom'
 
 
 const Header = ({setCurrentPage}) => {
@@ -102,8 +103,13 @@ const Header = ({setCurrentPage}) => {
                 </form>
             </div>
         </div>
+
+        
         <div>
-                <h2>CREAR PERRITO</h2>
+        <Link to="/newdogs">
+                CREAR PERRITO
+      
+        </Link>
         </div>
     </div>
   )

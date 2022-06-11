@@ -4,6 +4,7 @@ import { traerLosPerritos, traerLosTemperamentos } from '../redux/actions'
 import Cards from "../componentes/Cards";
 import Header from '../componentes/Header';
 import styles from "../pages/styles/Home.module.css"
+import Loading from '../componentes/Loading';
 
 
 const Home = ()=>{
@@ -59,7 +60,7 @@ const Home = ()=>{
                     {
                         numerosDePaginas && numerosDePaginas.map((num)=>{
                            return(num !== currentPage)?
-                               (<button key={num} onClick={()=>paginas(num)}>{num}</button>)
+                               (<button className={styles.pag} key={num} onClick={()=>paginas(num)}>{num}</button>)
                             : (<button className={styles.pagCurrent} key={num} onClick={()=>paginas(num)}>{num}</button>)    
                         })
                     }
@@ -73,9 +74,7 @@ const Home = ()=>{
            </div>
            ): ( 
        
-              <div className={styles.loading}>
-                 Loading...
-              </div>
+              <Loading/>
         
             )}
         </Fragment>

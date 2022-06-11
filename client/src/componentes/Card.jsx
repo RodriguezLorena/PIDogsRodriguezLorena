@@ -9,7 +9,7 @@ const Card = ({ name, image, id, temperament, weight}) => {
   return (
     
     <div className={styles.card} key={id}>
-      <Link to={`/detalle/${id}`}>
+      <Link className={styles.link} to={`/detalle/${id}`}>
        <img className={styles.img} src={image} alt={name}/>
         <div className={styles.container}>
          <h4 className={styles.title}>{name}</h4>

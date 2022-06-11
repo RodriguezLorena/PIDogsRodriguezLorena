@@ -97,3 +97,10 @@ export const searchBarFilter =(payload)=>{
         }
     }
 }
+
+export function crearPerro(payload){
+    return async function(dispatch){
+        const newPerro= await axios.post("/dogs", payload)
+        return newPerro;
+    }
+}

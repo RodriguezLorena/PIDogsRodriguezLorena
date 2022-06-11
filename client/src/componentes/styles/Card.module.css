@@ -1,24 +1,23 @@
 /*estilos de card*/
 .card {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.5s;
-    width: 50%;
+    box-shadow: 0 4px 8px 3px rgba(0, 0, 0, 0.625);
+    width: 20%;
     border: solid 1px black;
-    background-color: #bec200;
-    justify-content: center;
-    contain: content;
-    margin: 1rem;
-  
-   
+    background-color: rgb(218, 170, 153);
+    
+    
+    margin: 1rem;  
+ 
   }
   
-  .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-    background-color: #272702;
+  .link{
+    text-decoration: none;
   }
-  
   .container {
-    padding: 2px 16px;
+   padding: 1rem;
+    color: black;
+    text-align: center;
+  
   }
   .img{
     width: 100%;
@@ -26,6 +25,6 @@
 
   .title{
     font-size: 1.5rem;
-    color:  #092201;
+    color:   rgb(44, 26, 17)
 
   }

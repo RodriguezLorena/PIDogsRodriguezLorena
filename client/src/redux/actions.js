@@ -98,9 +98,13 @@ export const searchBarFilter =(payload)=>{
     }
 }
 
-export function crearPerro(payload){
-    return async function(dispatch){
-        const newPerro= await axios.post("/dogs", payload)
-        return newPerro;
+export const crearPerro=(payload)=>{
+    return async function(){
+        try {
+        let subiendoPerrito= await axios.post("http://localhost:3001/dog", payload)
+        return subiendoPerrito;
+        }catch (error) {
+            console.log(error)
+        }
     }
 }

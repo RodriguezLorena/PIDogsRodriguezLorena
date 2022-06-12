@@ -119,10 +119,7 @@ const inicialState = {
                     
                 }        
             }
-        case "NEW_DOG":
-            return{
-                ...state
-            }
+        
            
         default:
             return state    

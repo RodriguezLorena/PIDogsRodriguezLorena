@@ -65,7 +65,7 @@ const objetoPerrito= async()=>{
 
 const perritoPorId= async (id)=>{
     try {
-        const llamarTodoLosPerrito= await objetoPerrito();
+        const llamarTodoLosPerrito= await allDogs();
         const buscarLosPerritos= llamarTodoLosPerrito.find(elemento=> elemento.id == id);
         return buscarLosPerritos;
     } catch (error) {

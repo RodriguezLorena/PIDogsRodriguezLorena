@@ -8,7 +8,7 @@ const Card = ({ name, image, id, temperament, weight}) => {
     
   return (
     
-    <div className={styles.card} key={id}>
+    <div className={styles.card}>
       <Link className={styles.link} to={`/detalle/${id}`}>
        <img className={styles.img} src={image} alt={name}/>
         <div className={styles.container}>

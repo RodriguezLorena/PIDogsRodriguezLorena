@@ -108,3 +108,8 @@ export const crearPerro=(payload)=>{
         }
     }
 }
+export const deletePerrito=()=>{
+    return({
+        type: "DELETE_PERRITO"
+    })
+}

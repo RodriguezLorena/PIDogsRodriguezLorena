@@ -119,7 +119,11 @@ const inicialState = {
                     
                 }        
             }
-        
+        case "DELETE_PERRITO":
+            return{
+                ...state,
+                unPerrito:{}
+            }
            
         default:
             return state    

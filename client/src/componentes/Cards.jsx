@@ -1,10 +1,11 @@
 import {Fragment } from 'react'
 import Card from './Card'
+import styles from "./styles/Card.module.css"
 
 const Cards = ({listDogs}) => {
 
     return (
-        <Fragment>
+        <div className={styles.contenedor}>
             {
                 listDogs && listDogs.map((element)=>{
                     return(
@@ -14,7 +15,7 @@ const Cards = ({listDogs}) => {
                     ) 
                 })
             }
-        </Fragment>
+        </div>
   )
 }
 

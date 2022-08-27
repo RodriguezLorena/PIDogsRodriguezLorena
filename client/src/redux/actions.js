@@ -19,7 +19,7 @@ export function traerLosTemperamentos() {
                 type: "GET_TEMPERAMENTS",
                 payload: dataTemperamentos.data
             })
-        }catch(error) {
+        }catch(error) {      
             console.log(error)
         }
     }

@@ -27,8 +27,9 @@ const [newPerro, setNewPerro]= useState({
     life_span_min: 0,
     life_span_max: 0,
     url: "",
-    temperament:[]
-  })   
+    temperament:[]                
+                                  
+  })                              
 
 
 const handlerChangeInput=(e)=>{
@@ -72,7 +73,7 @@ const handlerCrearPerrito=(e)=>{
   e.preventDefault()
   const perritoCreadoDefinitivamente={
     ...newPerro,
-    height:`${newPerro.alturaMin} - ${newPerro.alturaMax}`,
+    height:`${newPerro.alturaMin} - ${newPerro.alturaMax}`, 
     weight: `${newPerro.pesoMin} - ${newPerro.pesoMax}`,
     life_span: `${newPerro.life_span_min} - ${newPerro.life_span_max}`
   }
@@ -83,6 +84,7 @@ const handlerCrearPerrito=(e)=>{
   }, 500);
  }
 }
+
 
 //errores
 const [errores, setErrores] = useState({})
@@ -118,17 +120,11 @@ function validacion(newPerro){
       <Link to="/home">Volver al Home</Link>
       <form>
         <div>
-         <label>
-          Name: 
-          <input id="nameInput" 
-          type="text"
-          name="name"
-          value={newPerro.name}
-          placeholder="Escribe el nombre"
+         <label>Name: 
+          <input id="nameInput" type="text" name="name" value={newPerro.name} placeholder="Escribe el nombre"
           onChange={(e)=>handlerChangeInput(e)}/>   
             {errores.name && <p>{errores.name}</p>} 
-        </label> 
-      
+          </label> 
         </div>
 
         <div>

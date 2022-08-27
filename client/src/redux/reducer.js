@@ -59,7 +59,7 @@ const inicialState = {
                 listaDeTemperamentos = listadogs.filter((ele)=>ele.temperament?.includes(payload))
             }
             return{
-                ...state,
+                ...state,     
                 perritos: listaDeTemperamentos
             }  
             case "SELECT_CAMBIO_PESO":

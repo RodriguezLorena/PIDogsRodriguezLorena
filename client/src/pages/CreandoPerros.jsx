@@ -3,6 +3,7 @@ import { Link , useNavigate } from 'react-router-dom'
 import {useState,useEffect} from "react"
 import { useDispatch, useSelector } from 'react-redux'
 import {crearPerro, traerLosTemperamentos } from "../redux/actions"
+import style from "./crear.module.css"
 
 const CreandoPerros = () => {
   const dispatch= useDispatch()
@@ -117,9 +118,15 @@ function validacion(newPerro){
 
   return (
     <div>
-      <Link to="/home">Volver al Home</Link>
-      <form>
-        <div>
+      
+      <Link className={style.contenedorNav} to="/home">Volver al Home</Link>
+     
+     
+      <div className={style.contenedor}>
+        
+      <form className={style.contenedorForm}>
+      <h1>Crea tu peludito</h1>
+        <div className={style.form}>
          <label>Name: 
           <input id="nameInput" type="text" name="name" value={newPerro.name} placeholder="Escribe el nombre"
           onChange={(e)=>handlerChangeInput(e)}/>   
@@ -127,7 +134,7 @@ function validacion(newPerro){
           </label> 
         </div>
 
-        <div>
+        <div className={style.form}>
           <label>
             Altura
             <input type="number"
@@ -145,7 +152,7 @@ function validacion(newPerro){
          
         </div>
 
-       <div>
+       <div className={style.form}>
         <label>
          Peso
           <input type="number" 
@@ -161,7 +168,7 @@ function validacion(newPerro){
         </label>
       
        </div>
-       <div>
+       <div className={style.form}>
         <label>
           Años de Vida
           <input type="number" 
@@ -178,7 +185,7 @@ function validacion(newPerro){
        
        </div>
        
-       <div>
+       <div className={style.form}>
         <label>
           Imagen url
           <input type="text" name="url" 
@@ -190,7 +197,7 @@ function validacion(newPerro){
        
        </div>
        
-       <div>
+       <div className={style.form}>
        
             <select onChange={(e)=>handlerCambiarTemperamento(e)} 
               defaultValue={"default"}>
@@ -216,9 +223,11 @@ function validacion(newPerro){
        </div>
       
        <div>
-        <button onClick={(e)=>handlerCrearPerrito(e)}>Craer otro perrito</button>
+        <button className={style.boton} onClick={(e)=>handlerCrearPerrito(e)}>Craer otro perrito</button>
        </div> 
       </form>
+      </div>
+    
     </div>
   )
 }

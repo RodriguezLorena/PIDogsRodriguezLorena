@@ -1,9 +1,6 @@
 require('dotenv').config();
 const axios = require("axios")
 const {getAllDogs} = require("./ControlesDogs")
-const {
-    YOUR_API_KEY
-   } = process.env;
 
   
 
@@ -15,8 +12,6 @@ const getAllTemperamentos = async() =>{
         let temperamentos= todosLosTemperamentos.map((objeto)=> objeto.temperament)
         
         return temperamentos;
-        // let temperamentos = (await axios(`https://api.thedogapi.com/v1/breeds?api_key=${YOUR_API_KEY}`)).data
-        // res.send(temperamentos)
     
     }catch(err){
         console.log(err)
